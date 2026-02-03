@@ -14,20 +14,22 @@ export default function App() {
 
     const greensnake = new Snake("green");
     greensnake.move(5);
-    greensnake.turn();
+    greensnake.turnLeft();
     greensnake.move(10);
-    display("Green snake has moved a total of", greensnake.position, "squares");
+    display(
+      "Green snake moved to",
+      greensnake.position.x,
+      greensnake.position.y
+    );
 
     const maroonsnake = new Snake("maroon");
-    maroonsnake.move(15);
-    maroonsnake.turn();
-    maroonsnake.move(20);
-    maroonsnake.turn();
-    maroonsnake.move(10);
+    maroonsnake.move(30);
+    maroonsnake.turnRight();
+    maroonsnake.move(2);
     display(
-      "Maroon snake has moved a total of",
-      maroonsnake.position,
-      "squares"
+      "Maroon snake moved to",
+      maroonsnake.position.x,
+      maroonsnake.position.y
     );
   }, []);
   return (
