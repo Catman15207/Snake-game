@@ -28,7 +28,7 @@ const moveSnakes = (times: number, turn: boolean = false) => {
     }
   }
 
-  return { actual: maroonSnake.position, expected: totalSquares };
+  return { actual: maroonSnake.currentPosition, expected: totalSquares };
 };
 
 describe("Snake Tests", function () {
