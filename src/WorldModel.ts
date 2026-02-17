@@ -1,5 +1,5 @@
 import Snake from "./Snake";
-import Point from "./Point";
+//import Point from "./Point";
 
 /** Represents the game world, which contains one Snake (aggregation) */
 class WorldModel {
