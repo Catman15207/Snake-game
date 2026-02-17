@@ -2,6 +2,7 @@ import "./App.css";
 import { useEffect } from "react";
 import Display from "./ConsoleDisplay";
 import display from "./display";
+import WorldModel from "./WorldModel";
 // import Car from "./Car";
 // import Duck from "./Duck";
 import Snake from "./Snake";
@@ -13,23 +14,21 @@ export default function App() {
     display("hey");
 
     const greensnake = new Snake("green");
-    greensnake.move(5);
-    greensnake.turnLeft();
-    greensnake.move(10);
+    const greenWorld = new WorldModel(greensnake);
+
     display(
       "Green snake moved to",
-      greensnake.position.x,
-      greensnake.position.y
+      greenWorld.snake.currentPosition.x,
+      greenWorld.snake.currentPosition.y
     );
 
     const maroonsnake = new Snake("maroon");
-    maroonsnake.move(30);
-    maroonsnake.turnRight();
-    maroonsnake.move(2);
+    const maroonWorld = new WorldModel(maroonsnake);
+
     display(
       "Maroon snake moved to",
-      maroonsnake.position.x,
-      maroonsnake.position.y
+      maroonWorld.snake.currentPosition.x,
+      maroonWorld.snake.currentPosition.y
     );
   }, []);
   return (
