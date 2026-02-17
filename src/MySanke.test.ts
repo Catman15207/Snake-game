@@ -23,4 +23,13 @@ describe("My custome snake test", () => {
     expect(snake.currentPosition.x).toBe(7);
     expect(snake.currentPosition.y).toBe(-3);
   });
+  it("should stay in place when turning left 4 times from start", () => {
+    const snake = new Snake("green"); // fresh snake at 0,0
+    snake.turnLeft();
+    snake.turnLeft();
+    snake.turnLeft();
+    snake.turnLeft();
+    // Position should not change
+    expect(snake.currentPosition).toEqual({ x: 0, y: 0 });
+  });
 });
