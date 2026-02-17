@@ -21,6 +21,10 @@ class Snake {
     this.color = color;
   }
 
+  get currentDirection(): "up" | "down" | "left" | "right" {
+    return this.direction;
+  }
+
   /** Gets the current position of the snake */
   get currentPosition(): Point {
     return this._currentPosition; //
