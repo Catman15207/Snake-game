@@ -1,7 +1,4 @@
-// import display from "./display";
 import Point from "./Point";
-
-// place your code on line 5 above the export statement below
 
 /**
  * Represents a Snake in a 2D world.
@@ -11,10 +8,6 @@ class Snake {
   private direction: "up" | "down" | "left" | "right";
   private color: string;
 
-  /**
-   * Creates a new Snake with a given color at position (0,0) facing up.
-   * @param color The color of the snake
-   */
   constructor(color: string) {
     this._currentPosition = new Point(0, 0);
     this.direction = "up";
@@ -25,12 +18,15 @@ class Snake {
     return this.direction;
   }
 
-  /** Gets the current position of the snake */
   get currentPosition(): Point {
-    return this._currentPosition; //
+    return this._currentPosition;
   }
 
-  /** Moves the snake forward a number of steps in its current direction */
+  /** New getter for color */
+  get snakeColor(): string {
+    return this.color;
+  }
+
   move(steps: number) {
     switch (this.direction) {
       case "up":
@@ -48,7 +44,6 @@ class Snake {
     }
   }
 
-  /** Turns the snake to the left */
   turnLeft() {
     if (this.direction === "up") this.direction = "left";
     else if (this.direction === "left") this.direction = "down";
@@ -56,7 +51,6 @@ class Snake {
     else if (this.direction === "right") this.direction = "up";
   }
 
-  /** Turns the snake to the right */
   turnRight() {
     if (this.direction === "up") this.direction = "right";
     else if (this.direction === "right") this.direction = "down";
@@ -64,9 +58,7 @@ class Snake {
     else if (this.direction === "left") this.direction = "up";
   }
 
-  /**
-   * @deprecated Use turnLeft() or turnRight() instead
-   */
+  /** @deprecated */
   turn() {
     console.warn("Snake.turn() is deprecated. Use turnLeft() or turnRight().");
   }
