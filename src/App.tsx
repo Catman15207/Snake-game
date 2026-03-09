@@ -1,4 +1,5 @@
 import "./App.css";
+import CanvasWorldView from "./CanvasWorldView";
 import { useEffect } from "react";
 import Display from "./ConsoleDisplay";
 import display from "./display";
@@ -13,7 +14,15 @@ export default function App() {
     document.getElementById("output")!.innerText = "OUTPUT:\n";
     display("hey");
 
-    const greensnake = new Snake("green");
+    const greenSnake = new Snake("green");
+    const greenWorld = new WorldModel(greenSnake, 20, 20);
+
+    const canvasView = new CanvasWorldView(20);
+    greenWorld.worldView = canvasView;
+
+    greenWorld.update(0);
+
+    /**  const greensnake = new Snake("green");
     const greenWorld = new WorldModel(greensnake);
 
     display(
@@ -29,7 +38,7 @@ export default function App() {
       "Maroon snake moved to",
       maroonWorld.snake.currentPosition.x,
       maroonWorld.snake.currentPosition.y
-    );
+    );*/
   }, []);
   return (
     <div className="App">
